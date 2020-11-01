@@ -2,9 +2,7 @@
 
 type typeConcatFn = (firstStr: string, secondStr: string) => string ;
 
-const concat: typeConcatFn = (firstStr: string, secondStr: string) => {
-    return firstStr + secondStr
-}
+const concat: typeConcatFn = (firstStr: string, secondStr: string) => firstStr + secondStr;
 
 let result = concat('Hello ', 'World');
 
@@ -21,3 +19,15 @@ const MyHometask: homeTask  = {
 	simeArray: ["string one", "string two", 42],
 	withData: [{ howIDoIt: "I Do It Wel", simeArray: ["string one", 23] }],
 }
+
+// Generic
+
+interface MyArray<T> {
+	[N: number]: T;
+    map<U>(fn: (el: T) => U): U[];
+	reduce<U>(fn: (acc:U, el:T) => U): U;
+}
+
+let arr: number[] = [1,2,3];
+
+console.log(arr.reduce((acc, i) => i + acc));
