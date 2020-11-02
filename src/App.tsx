@@ -12,6 +12,8 @@ const App = () => {
     <div>
                   <h1 className={cn(style.header, 'color')}>This is App Component!</h1>
     </div>
+
+    
   );
 };
 
