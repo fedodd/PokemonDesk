@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <div>
+      <div className={style.main}>
         <h1 className={style.title}>This is App Component!</h1>
       </div>
       <Footer />
