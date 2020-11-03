@@ -1,12 +1,19 @@
 import React from 'react';
 
 import cn from 'classnames';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+
 import style from './App.module.scss';
 
 const App = () => {
   return (
     <div>
-      <h1 className={cn(style.header, 'color')}>This is App Component!</h1>
+      <Header />
+      <div>
+        <h1 className={style.title}>This is App Component!</h1>
+      </div>
+      <Footer />
     </div>
   );
 };
