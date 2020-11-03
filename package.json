@@ -57,8 +57,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css}": [
-      "yarn pretty-quick --staged",
-      "yarn eslint ./src"
+      "pretty-quick --staged",
+      "eslint ./src"
     ]
   }
 }
