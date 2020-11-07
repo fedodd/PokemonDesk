@@ -1,11 +1,20 @@
-.header {
+@import '../../assets/scss/variables';
+
+.root {
   height: 93px;
-  box-sizing: border-box;
   background: #f5db13;
   box-shadow: 0px 4px 16px 0px rgba(1, 28, 64, 0.2);
-
-  display: flex;
   padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1125px;
+  height: 63px;
 }
 
 .logo {
@@ -19,6 +28,7 @@
 .nav {
   display: flex;
   height: 100%;
+  width: 600px;
   align-items: center;
   padding: 0;
   margin: 0;
@@ -28,22 +38,38 @@
   font-weight: normal;
   font-size: 25px;
   line-height: 29px;
-
-  /* Pharagraph */
-
-  color: #212121;
+  justify-content: space-between;
 }
 
-.navItem {
+.navLink {
+  position: relative;
   padding: 0;
   margin: 0;
-  margin-left: 40px;
-  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  color: $dark;
+  // border-bottom: 3px solid transparent;
 
-  padding: 18px 5px 15px;
+  padding: 5px 0;
   cursor: pointer;
 
-  &:hover {
-    border-color: #212121;
+  &::after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    display: block;
+    width: 1%;
+    height: 1px;
+    opacity: 0;
+    background-color: $dark;
+    transition: opacity, width ease-in-out 0.25s;
+    border: 1px solid $dark;
+    border-radius: 6px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  &:hover::after {
+    width: 100%;
+    opacity: 1;
   }
 }

@@ -1,0 +1,21 @@
+@import '../../assets/scss/variables';
+
+.root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  min-height: 100vh;
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
+}
+
+.title {
+  font-size: 64px;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  box-sizing: border-box;
+  padding-top: 60px;
+  padding-left: 40px;
+}
