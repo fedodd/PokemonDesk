@@ -5,7 +5,7 @@ import s from './Button.module.scss';
 
 interface ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  size?: string;
+  size?: 'small' | 'big';
   fullwidth?: boolean;
   altColored?: boolean;
 }
