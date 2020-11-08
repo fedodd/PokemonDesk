@@ -1,10 +1,8 @@
 @import '../../assets/scss/variables';
 
 .root {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  height: 100vh;
-  min-height: 100vh;
+  height: calc(100vh - #{$header-height});
+  padding-bottom: $footer-height;
   background: linear-gradient(180deg, $third 0%, $primary 100%);
   max-width: 100%;
 }

@@ -6,13 +6,15 @@ import style from './Footer.module.scss';
 const Footer = () => {
   return (
     <footer className={style.footer}>
-      <span>
-        Make with{' '}
-        <span role="img" aria-label="heart">
-          ❤️
+      <div className={style.wrapper}>
+        <span>
+          Make with{' '}
+          <span role="img" aria-label="heart">
+            ❤️
+          </span>
         </span>
-      </span>
-      <span>Ours Team</span>
+        <span>Ours Team</span>
+      </div>
     </footer>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { ReactComponent as PokemonLogoSvg } from '../../assets/img/Logo.svg';
 // import cn from 'classnames';
 import style from './Header.module.scss';
@@ -16,12 +16,12 @@ const Header = () => {
     {
       id: 1,
       value: 'Home',
-      link: '/#',
+      link: '/Home',
     },
     {
       id: 2,
       value: 'Pokédex',
-      link: '/#',
+      link: '/Pokedex',
     },
     {
       id: 3,
@@ -45,9 +45,9 @@ const Header = () => {
         <nav className={style.nav}>
           {MENU.map(({ value, link, id }) => (
             <li key={id}>
-              <a className={style.navLink} href={link}>
+              <Link className={style.navLink} to={link}>
                 {value}
-              </a>
+              </Link>
             </li>
           ))}
 

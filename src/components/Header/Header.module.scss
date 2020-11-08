@@ -1,6 +1,7 @@
 @import '../../assets/scss/variables';
 
 .root {
+  position: relative;
   height: $header-height;
   background: #f5db13;
   box-shadow: 0px 4px 16px 0px rgba(1, 28, 64, 0.2);
