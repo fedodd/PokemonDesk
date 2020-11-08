@@ -1,14 +1,28 @@
 import React from 'react';
 
-import style from './Button.module.scss';
+import cn from 'classnames';
+import s from './Button.module.scss';
 
 interface ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  size?: string;
+  fullwidth?: boolean;
+  altColored?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
+// const cx = cn.bind(s);
+
+const Button: React.FC<ButtonProps> = ({ children, onClick, size, fullwidth, altColored }) => {
+  const btnClass = cn({
+    [s.root]: true,
+    [s.fullwidth]: fullwidth,
+    [s.altColored]: altColored,
+    [s.small]: size === 'small',
+  });
+  // className={cn(s.root, { [s.otherClass]: isOtherClass })}
+
   return (
-    <button className={style.root} type="button" onClick={onClick}>
+    <button className={btnClass} type="button" onClick={onClick}>
       {children}
     </button>
   );
