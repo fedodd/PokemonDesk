@@ -6,16 +6,46 @@
   height: 100vh;
   min-height: 100vh;
   background: linear-gradient(180deg, $third 0%, $primary 100%);
-}
-
-.title {
-  font-size: 64px;
-  margin: 0;
-  padding: 0;
+  max-width: 100%;
 }
 
 .main {
   box-sizing: border-box;
+  // display: flex;
   padding-top: 60px;
-  padding-left: 40px;
+  padding-left: calc((100vw - 1125px) / 2);
+  display: grid;
+  grid-template: 1fr / 1fr 793px;
+  overflow: hidden;
+}
+
+// .textWrapper {
+//   width: 50%;
+// }
+
+.title {
+  margin: 0;
+  padding: 0;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 84px;
+  letter-spacing: 4px;
+  color: black;
+  margin-bottom: $padding-big;
+
+  // & strong {
+  //   font-weight: 700;
+  // }
+}
+
+.description {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+  color: black;
+  margin-bottom: $padding-big;
 }

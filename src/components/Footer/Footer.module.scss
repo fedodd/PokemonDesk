@@ -1,5 +1,7 @@
+@import '../../assets/scss/variables';
+
 .footer {
-  height: 93px;
+  height: $footer-height;
   display: flex;
   padding: 0 40px;
   align-items: center;
