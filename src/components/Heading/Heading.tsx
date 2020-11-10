@@ -3,13 +3,14 @@ import s from './Heading.module.scss';
 
 interface HeadingProps {
   level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+  className?: string;
 }
 
-const Heading: React.FC<HeadingProps> = ({ children, level }) => {
+const Heading: React.FC<HeadingProps> = ({ children, level, className }) => {
   let textComponent = null;
   switch (level) {
     case 'h1':
-      textComponent = <h1 className={s.h1}>{children}</h1>;
+      textComponent = <h1 className={s.h1 + className}>{children}</h1>;
       break;
 
     case 'h2':
