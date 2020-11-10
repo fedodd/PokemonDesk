@@ -1,0 +1,38 @@
+@import '../../assets/scss/variables';
+
+.root {
+  width: 793px;
+  height: calc(100vh - $header-height - $footer-height);
+  margin-right: -159px;
+  position: relative;
+}
+
+.smallPokeBall {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+
+.cloud {
+  position: absolute;
+  left: 12.31%;
+  bottom: 29.22%;
+}
+
+.cloudBig {
+  position: absolute;
+  left: 49.86%;
+  top: -3%;
+}
+
+.pokeBall {
+  position: absolute;
+  top: 15%;
+  right: -20%;
+}
+
+.pikachu {
+  position: absolute;
+  top: 0%;
+  left: 4.11%;
+}

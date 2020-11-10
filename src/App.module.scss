@@ -1,0 +1,8 @@
+@import './assets/scss/variables';
+
+.app {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
