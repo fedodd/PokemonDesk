@@ -12,6 +12,11 @@ interface IGeneralMenu {
 
 export const GENERAL_MENU: IGeneralMenu[] = [
   {
+    title: '',
+    link: '/',
+    component: () => <HomePage />,
+  },
+  {
     title: 'Home',
     link: '/home',
     component: () => <HomePage />,

@@ -3,3 +3,15 @@
 .root {
   display: grid;
 }
+
+.content {
+  width: $contentWidth;
+}
+
+.pokemons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -30px;
+  // grid-columns: 3;
+  // grid-rows: auto;
+}

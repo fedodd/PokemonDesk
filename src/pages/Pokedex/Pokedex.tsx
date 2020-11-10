@@ -9,7 +9,7 @@ import style from './Pokedex.module.scss';
 
 import pokemonsData from './pokemons';
 
-interface IpokeData {
+interface iPokemon {
   name_clean: string;
   abilities: string[];
   stats: {
@@ -22,7 +22,7 @@ interface IpokeData {
   };
   types: string[];
   img: string;
-  name: 'string';
+  name: string;
   base_experience: number;
   height: number;
   id: number;
@@ -32,17 +32,19 @@ interface IpokeData {
 }
 
 const Home = () => {
-  const pokemons = pokemonsData.map((card) => {
+  const pokemons = pokemonsData.map((card: iPokemon) => {
     return <PokemonCard pokemon={card} key={card.id} />;
   });
 
   return (
     <div className={style.root}>
       <Header />
-      <div>
-        <Heading level="h1">Pokedex</Heading>
+      <div className={style.content}>
+        <Heading level="h1">
+          {pokemons.length} <strong>Pokemons</strong> for you to choose your favorite
+        </Heading>
 
-        {pokemons}
+        <div className={style.pokemons}>{pokemons}</div>
       </div>
       <Footer />
     </div>

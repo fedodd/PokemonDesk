@@ -3,29 +3,33 @@ import Heading from '../Heading/Heading';
 
 import s from './PokemonCard.module.scss';
 
-interface IpokeData {
+interface IPokemon {
   name_clean: string;
-  abilities: string[];
+  // abilities: string[];
   stats: {
-    hp: number;
+    // hp: number;
     attack: number;
     defense: number;
-    'special-attack': number;
-    'special-defense': number;
-    speed: number;
+    // 'special-attack': number;
+    // 'special-defense': number;
+    // speed: number;
   };
   types: string[];
   img: string;
-  name: 'string';
-  base_experience: number;
-  height: number;
+  name: string;
+  // base_experience: number;
+  // height: number;
   id: number;
-  is_default: boolean;
-  order: number;
-  weight: number;
+  // is_default: boolean;
+  // order: number;
+  // weight: number;
 }
 
-const PokemonCard = ({ pokemon<IpokeData> }) => {
+interface PokemonCardProps {
+  pokemon: IPokemon;
+}
+
+const PokemonCard: React.FC<PokemonCardProps> = ({ children, pokemon }) => {
   return (
     <div className={s.root}>
       <div className={s.infoWrap}>
@@ -34,23 +38,20 @@ const PokemonCard = ({ pokemon<IpokeData> }) => {
         </Heading>
         <div className={s.statWrap}>
           <div className={s.statItem}>
-            <div className={s.statValue}>52</div>
+            <div className={s.statValue}>{pokemon.stats.attack}</div>
             Attack
           </div>
           <div className={s.statItem}>
-            <div className={s.statValue}>43</div>
+            <div className={s.statValue}>{pokemon.stats.defense}</div>
             Defense
           </div>
         </div>
         <div className={s.labelWrap}>
-          <span className={s.label}>Fire</span>
+          <span className={s.label}>{pokemon.types.join(' ')}</span>
         </div>
       </div>
       <div className={s.pictureWrap}>
-        <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-          alt="Charmander"
-        />
+        <img src={pokemon.img} alt={pokemon.name} />
       </div>
     </div>
   );

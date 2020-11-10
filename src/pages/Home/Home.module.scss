@@ -10,7 +10,7 @@
 .main {
   box-sizing: border-box;
   padding-top: 60px;
-  padding-left: calc((100vw - 1125px) / 2);
+  padding-left: calc((100vw - #{$contentWidth}) / 2);
   display: grid;
   grid-template: 1fr / 1fr 793px;
   overflow: hidden;
