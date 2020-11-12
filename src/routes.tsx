@@ -10,30 +10,32 @@ interface IGeneralMenu {
   link: string;
 }
 
+export enum LinkEnum {
+  HOME = '/',
+  POKEDEX = '/pokedex',
+  LEGENDARIE = '/legendarie',
+  DOCUMENTATION = '/documentation',
+}
+
 export const GENERAL_MENU: IGeneralMenu[] = [
   {
-    title: '',
-    link: '/',
-    component: () => <HomePage />,
-  },
-  {
     title: 'Home',
-    link: '/home',
+    link: LinkEnum.HOME,
     component: () => <HomePage />,
   },
   {
     title: 'Pokédex',
-    link: '/pokedex',
+    link: LinkEnum.POKEDEX,
     component: () => <Pokedex />,
   },
   {
     title: 'Legendaries',
-    link: '/legendaries',
+    link: LinkEnum.LEGENDARIE,
     component: () => <Error404 title="Legendaries" />,
   },
   {
     title: 'Documentation',
-    link: '/documentation',
+    link: LinkEnum.DOCUMENTATION,
     component: () => <Error404 title="Documentation" />,
   },
 ];

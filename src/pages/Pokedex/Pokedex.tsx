@@ -1,6 +1,4 @@
 import React from 'react';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
 
 import Heading from '../../components/Heading/Heading';
 import PokemonCard from '../../components/PokemonCard/PokemonCard';
@@ -38,7 +36,6 @@ const Home = () => {
 
   return (
     <div className={style.root}>
-      <Header />
       <div className={style.content}>
         <Heading level="h1">
           {pokemons.length} <strong>Pokemons</strong> for you to choose your favorite
@@ -46,7 +43,6 @@ const Home = () => {
 
         <div className={style.pokemons}>{pokemons}</div>
       </div>
-      <Footer />
     </div>
   );
 };

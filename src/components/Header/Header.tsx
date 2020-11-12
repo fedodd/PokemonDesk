@@ -4,8 +4,6 @@ import { ReactComponent as PokemonLogoSvg } from '../../assets/img/Logo.svg';
 import style from './Header.module.scss';
 import { GENERAL_MENU } from '../../routes';
 
-// import logo from '../../assets/img/Logo.svg';
-
 const Header = () => {
   const path = usePath();
   return (
@@ -18,7 +16,7 @@ const Header = () => {
         <nav className={style.nav}>
           {GENERAL_MENU.map(({ link, title }) => (
             <li key={title}>
-              <A className={style.navLink + (link === path ? ' is__active' : '')} href={link}>
+              <A className={style.navLink + (link === path ? ` ${style.is__active}` : '')} href={link}>
                 {title}
               </A>
             </li>
@@ -29,4 +27,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

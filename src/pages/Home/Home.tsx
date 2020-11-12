@@ -5,13 +5,12 @@ import Parallax from '../../components/Parallax/Parallax';
 import Heading from '../../components/Heading/Heading';
 
 import style from './Home.module.scss';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+
+import { LinkEnum } from '../../routes';
 
 const Home = () => {
   return (
     <div className={style.root}>
-      <Header />
       <div className={style.main}>
         <div>
           <div className={style.title}>
@@ -22,13 +21,12 @@ const Home = () => {
           <p className={style.description}>
             You can know the type of Pokemon, its strengths, disadvantages and abilities
           </p>
-          <Button onClick={() => navigate('/pokedex')} color="green">
+          <Button onClick={() => navigate(LinkEnum.POKEDEX)} color="green">
             See pokemons
           </Button>
         </div>
         <Parallax />
       </div>
-      <Footer />
     </div>
   );
 };
