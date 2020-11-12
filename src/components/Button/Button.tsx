@@ -7,16 +7,16 @@ interface ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   size?: 'small' | 'big';
   fullwidth?: boolean;
-  altColored?: boolean;
+  color?: 'yellow' | 'green';
 }
 
 // const cx = cn.bind(s);
 
-const Button: React.FC<ButtonProps> = ({ children, onClick, size, fullwidth, altColored }) => {
+const Button: React.FC<ButtonProps> = ({ children, onClick, size, fullwidth, color }) => {
   const btnClass = cn({
     [s.root]: true,
     [s.fullwidth]: fullwidth,
-    [s.altColored]: altColored,
+    [s.yellow]: color === 'yellow',
     [s.small]: size === 'small',
   });
   // className={cn(s.root, { [s.otherClass]: isOtherClass })}

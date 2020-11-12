@@ -22,7 +22,9 @@ const Home = () => {
           <p className={style.description}>
             You can know the type of Pokemon, its strengths, disadvantages and abilities
           </p>
-          <Button onClick={() => navigate('/pokedex')}>See pokemons</Button>
+          <Button onClick={() => navigate('/pokedex')} color="green">
+            See pokemons
+          </Button>
         </div>
         <Parallax />
       </div>

@@ -26,9 +26,9 @@ interface iPokemon {
   base_experience: number;
   height: number;
   id: number;
-  is_default: boolean;
-  order: number;
-  weight: number;
+  // is_default: boolean;
+  // order: number;
+  // weight: number;
 }
 
 const Home = () => {
