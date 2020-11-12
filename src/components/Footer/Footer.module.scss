@@ -1,11 +1,9 @@
 @import '../../assets/scss/variables';
 
 .footer {
-  position: absolute;
   display: flex;
   width: 100%;
   justify-content: center;
-  bottom: 0;
   height: $footer-height;
   margin: 0 auto;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 import HomePage from './pages/Home/Home';
 import Pokedex from './pages/Pokedex/Pokedex';
-import EmptyPage from './pages/Empty/Empty';
+import Error404 from './pages/NotFound/NotFound';
 
 interface IGeneralMenu {
   component: () => JSX.Element;
@@ -29,12 +29,12 @@ export const GENERAL_MENU: IGeneralMenu[] = [
   {
     title: 'Legendaries',
     link: '/legendaries',
-    component: () => <EmptyPage title="Legendaries" />,
+    component: () => <Error404 title="Legendaries" />,
   },
   {
     title: 'Documentation',
     link: '/documentation',
-    component: () => <EmptyPage title="Documentation" />,
+    component: () => <Error404 title="Documentation" />,
   },
 ];
 

@@ -2,7 +2,7 @@
 
 .root {
   width: 793px;
-  height: calc(100vh - $header-height - $footer-height);
+  height: calc(100vh - #{$header-height} - #{$footer-height});
   margin-right: -159px;
   position: relative;
 }

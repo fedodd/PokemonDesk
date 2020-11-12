@@ -6,12 +6,17 @@
 
 .content {
   width: $contentWidth;
+  padding-top: 60px;
+  padding-left: calc((100vw - 1125px) / 2);
 }
 
 .pokemons {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -30px;
+  // display: flex;
+  // flex-wrap: wrap;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  // margin-right: -30px;
   // grid-columns: 3;
   // grid-rows: auto;
 }
