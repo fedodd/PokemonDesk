@@ -4,7 +4,7 @@ import Heading from '../Heading/Heading';
 import s from './PokemonCard.module.scss';
 
 interface IPokemon {
-  name_clean: string;
+  // name_clean: string;
   // abilities: string[];
   stats: {
     // hp: number;
@@ -34,7 +34,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ children, pokemon }) => {
     <div className={s.root}>
       <div className={s.infoWrap}>
         <Heading level="h6" className={s.titleName}>
-          {pokemon.name_clean}
+          {pokemon.name}
         </Heading>
         <div className={s.statWrap}>
           <div className={s.statItem}>
