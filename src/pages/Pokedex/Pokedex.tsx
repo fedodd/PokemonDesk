@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Heading from '../../components/Heading/Heading';
 import PokemonCard from '../../components/PokemonCard/PokemonCard';
+import config from '../../config';
 
 import style from './Pokedex.module.scss';
 
@@ -36,8 +37,11 @@ const usePokemons = () => {
   useEffect(() => {
     const getPokemons = async () => {
       setIsLoading(true);
+      const url = `${config.server.protocol}://${config.server.host}${config.client.endpoint.getPokemons.uri.pathname}`;
+      console.log('url', url);
+
       try {
-        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons?limit=100');
+        const response = await fetch(url);
         const result = await response.json();
         setData(result);
       } catch (error) {
