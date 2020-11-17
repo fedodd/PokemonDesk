@@ -4,6 +4,7 @@ interface CssExports {
   'content': string;
   'pokemons': string;
   'root': string;
+  'search': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

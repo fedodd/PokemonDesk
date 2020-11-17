@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import Heading from '../../components/Heading/Heading';
 import PokemonCard from '../../components/PokemonCard/PokemonCard';
-import req from '../../utils/request';
+import useData from '../../hook/getData';
+// import req from '../../utils/request';
 
 import style from './Pokedex.module.scss';
 
@@ -28,42 +29,29 @@ interface iPokemon {
   // weight: number;
 }
 
-const usePokemons = () => {
-  // const [totalPokemons, setTotalPokemons] = useState(0);
-  const [data, setData] = useState({ total: 0, pokemons: [] });
-  const [isLoading, setIsLoading] = useState(true);
-  const [isFalse, setIsFalse] = useState(false);
-
-  useEffect(() => {
-    const getPokemons = async () => {
-      setIsLoading(true);
-
-      try {
-        const result = await req('getPokemons');
-        setData(result);
-      } catch (error) {
-        setIsFalse(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    getPokemons();
-  }, []);
-
-  return {
-    data,
-    isLoading,
-    isFalse,
-  };
-};
-
 const Home = () => {
-  const { data, isLoading, isFalse } = usePokemons();
+  const [searchValue, setSearchValue] = useState('');
+  const [query, setQuery] = useState({});
+  // const query = useMemo(
+  //   () => ({
+  //     name: searchValue,
+  //   }),
+  //   [searchValue],
+  // );
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const { data, isLoading, isFalse } = useData('getPokemons', query, [searchValue]);
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+    setQuery((s) => ({
+      ...s,
+      name: e.target.value,
+    }));
+  };
+
+  // if (isLoading) {
+  //   return <div>Loading...</div>;p
+  // }
 
   if (isFalse) {
     return <div>Something is wrong...</div>;
@@ -73,13 +61,23 @@ const Home = () => {
     <div className={style.root}>
       <div className={style.content}>
         <Heading level="h1">
-          {data.total} <strong>Pokemons</strong> for you to choose your favorite
+          {!isLoading && data.total} <strong>Pokemons</strong> for you to choose your favorite
         </Heading>
+        <div>
+          <input
+            className={style.search}
+            type="text"
+            value={searchValue}
+            placeholder="Encuentra tu pokémon..."
+            onChange={handleSearchChange}
+          />
+        </div>
 
         <div className={style.pokemons}>
-          {data.pokemons.map((card: iPokemon) => {
-            return <PokemonCard pokemon={card} key={card.id} />;
-          })}
+          {!isLoading &&
+            data.pokemons.map((card: iPokemon) => {
+              return <PokemonCard pokemon={card} key={card.id} />;
+            })}
         </div>
       </div>
     </div>
