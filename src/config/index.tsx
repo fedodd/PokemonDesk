@@ -1,9 +1,26 @@
-export const config = {
-  server: {
-    protocol: 'http',
-    host: 'zar.hosthot.ru',
-  },
+interface configI {
   client: {
+    server: {
+      protocol: string;
+      host: string;
+    };
+    endpoint: {
+      [n: string]: {
+        method: string;
+        uri: {
+          pathname: string;
+        };
+      };
+    };
+  };
+}
+
+export const config: configI = {
+  client: {
+    server: {
+      protocol: 'http',
+      host: 'zar.hosthot.ru',
+    },
     endpoint: {
       getPokemons: {
         method: 'GET',
