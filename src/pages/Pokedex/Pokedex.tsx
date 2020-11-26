@@ -1,37 +1,20 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 
 import Heading from '../../components/Heading/Heading';
 import PokemonCard from '../../components/PokemonCard/PokemonCard';
 import useData from '../../hook/getData';
-// import req from '../../utils/request';
 
 import style from './Pokedex.module.scss';
 
-interface iPokemon {
-  // name_clean: string;
-  abilities: string[];
-  stats: {
-    hp: number;
-    attack: number;
-    defense: number;
-    'special-attack': number;
-    'special-defense': number;
-    speed: number;
-  };
-  types: string[];
-  img: string;
-  name: string;
-  // base_experience: number;
-  height: number;
-  id: number;
-  // is_default: boolean;
-  // order: number;
-  // weight: number;
+import { IPokemons, PokemonRequest } from '../../interface/pokemons';
+
+interface IQuery {
+  name?: string;
 }
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState({});
+  const [query, setQuery] = useState<IQuery>({});
   // const query = useMemo(
   //   () => ({
   //     name: searchValue,
@@ -39,12 +22,12 @@ const Home = () => {
   //   [searchValue],
   // );
 
-  const { data, isLoading, isFalse } = useData('getPokemons', query, [searchValue]);
+  const { data, isLoading, isFalse } = useData<IPokemons>('getPokemons', query, [searchValue]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
-    setQuery((s) => ({
-      ...s,
+    setQuery((state: IQuery) => ({
+      ...state,
       name: e.target.value,
     }));
   };
@@ -61,7 +44,7 @@ const Home = () => {
     <div className={style.root}>
       <div className={style.content}>
         <Heading level="h1">
-          {!isLoading && data.total} <strong>Pokemons</strong> for you to choose your favorite
+          {!isLoading && data && data.total} <strong>Pokemons</strong> for you to choose your favorite
         </Heading>
         <div>
           <input
@@ -75,7 +58,8 @@ const Home = () => {
 
         <div className={style.pokemons}>
           {!isLoading &&
-            data.pokemons.map((card: iPokemon) => {
+            data &&
+            data.pokemons.map((card: PokemonRequest) => {
               return <PokemonCard pokemon={card} key={card.id} />;
             })}
         </div>

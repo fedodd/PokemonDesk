@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import req from '../utils/request';
 
-const useData = (endpoint: string, query: object, deps: any[] = []) => {
+const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
   // const [totalPokemons, setTotalPokemons] = useState(0);
-  const [data, setData] = useState({ total: 0, pokemons: [] });
-  const [isLoading, setIsLoading] = useState(true);
-  const [isFalse, setIsFalse] = useState(false);
+  const [data, setData] = useState<T | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isFalse, setIsFalse] = useState<boolean>(false);
 
   useEffect(() => {
-    const getData = async () => {
+    const getData = async (): Promise<void> => {
       setIsLoading(true);
 
       try {
-        const result = await req(endpoint, query);
+        const result = await req<T>(endpoint, query);
         setData(result);
       } catch (error) {
         setIsFalse(true);
