@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import req from '../utils/request';
 
 const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
-  // const [totalPokemons, setTotalPokemons] = useState(0);
   const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isFalse, setIsFalse] = useState<boolean>(false);
