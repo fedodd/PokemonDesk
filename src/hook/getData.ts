@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import req from '../utils/request';
+import { IQuery } from '../utils/getUrlWithParamsConfig';
 
-const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
+const useData = <T>(endpoint: string, query: IQuery, deps: any[] = []) => {
   const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isFalse, setIsFalse] = useState<boolean>(false);
