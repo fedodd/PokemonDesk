@@ -1,0 +1,76 @@
+@import '../../assets/scss/variables';
+
+.root {
+  position: relative;
+  height: $header-height;
+  background: #f5db13;
+  box-shadow: 0px 4px 16px 0px rgba(1, 28, 64, 0.2);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  max-width: $contentWidth;
+  height: 63px;
+}
+
+.logo {
+  margin-right: auto;
+  width: 157px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  display: flex;
+  height: 100%;
+  width: 600px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: 'Karla', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  justify-content: space-between;
+}
+
+.navLink {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: $dark;
+  // border-bottom: 3px solid transparent;
+
+  padding: 5px 0;
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    display: block;
+    width: 1%;
+    height: 1px;
+    opacity: 0;
+    background-color: $dark;
+    transition: opacity, width ease-in-out 0.25s;
+    border: 1px solid $dark;
+    border-radius: 6px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  &.is__active::after,
+  &:hover::after {
+    width: 100%;
+    opacity: 1;
+  }
+}

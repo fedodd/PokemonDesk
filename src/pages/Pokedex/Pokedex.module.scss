@@ -1,0 +1,41 @@
+@import '../../assets/scss/variables';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+.root {
+  display: grid;
+}
+
+.content {
+  width: $contentWidth;
+  padding-top: 60px;
+  padding-left: calc((100vw - 1125px) / 2);
+}
+
+.pokemons {
+  // display: flex;
+  // flex-wrap: wrap;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  // margin-right: -30px;
+  // grid-columns: 3;
+  // grid-rows: auto;
+}
+
+.search {
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 100%;
+  height: 53px;
+  color: $dark;
+  background: #f2f2f2;
+
+  box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+  border-radius: 40px;
+  padding-left: 30px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+
+  /* greyGradient */
+}

@@ -1,0 +1,16 @@
+@import '../../assets/scss/variables';
+
+.footer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: $footer-height;
+  margin: 0 auto;
+}
+.wrapper {
+  width: 100%;
+  max-width: 1125px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

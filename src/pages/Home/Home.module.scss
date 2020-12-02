@@ -1,0 +1,32 @@
+@import '../../assets/scss/variables';
+
+.root {
+  box-sizing: border-box;
+  // height: calc(100vh - #{$header-height});
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
+  max-width: 100%;
+}
+
+.main {
+  box-sizing: border-box;
+  padding-top: 60px;
+  padding-left: calc((100vw - #{$contentWidth}) / 2);
+  display: grid;
+  grid-template: 1fr / 1fr 793px;
+  overflow: hidden;
+  height: calc(100vh - #{$footer-height} - #{$header-height});
+}
+
+.title {
+  margin-bottom: $padding-big;
+}
+
+.description {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+  color: black;
+  margin-bottom: $padding-big;
+}

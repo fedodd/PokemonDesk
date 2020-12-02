@@ -1,0 +1,46 @@
+@import '../../assets/scss/variables';
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+.h1 {
+  font-size: 72px;
+  line-height: 84px;
+  letter-spacing: 4px;
+  margin-bottom: $padding-big;
+}
+
+.h2 {
+  font-size: 64px;
+}
+
+.h3 {
+  font-size: 32px;
+}
+
+.h4 {
+  font-size: 24px;
+}
+
+.h5 {
+  font-size: 18px;
+}
+
+.h6 {
+  font-size: 12px;
+}
+
+.p {
+  font-size: 16px;
+  line-height: 37px;
+}
