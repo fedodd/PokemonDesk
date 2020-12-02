@@ -8,10 +8,11 @@ import style from './Pokedex.module.scss';
 
 import { IPokemons, PokemonRequest } from '../../interface/pokemons';
 import useDebounce from '../../hook/useDebounce';
+import { IQuery } from '../../utils/getUrlWithParamsConfig';
 
-interface IQuery {
-  name?: string;
-}
+// interface IQuery {
+//   name?: string;
+// }
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState('');

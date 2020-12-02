@@ -1,6 +1,6 @@
 import config from '../config';
 
-interface IQuery {
+export interface IQuery {
   [key: string]: number | string;
 }
 
