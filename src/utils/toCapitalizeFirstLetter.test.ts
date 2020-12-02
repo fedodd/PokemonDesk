@@ -5,4 +5,9 @@ describe('toCapitalizeFirstLetter', () => {
     const string = toCapitalizeFirstLetter('pIKAcHU');
     expect(string).toEqual('Pikachu');
   });
+
+  test('empty string', () => {
+    const string = toCapitalizeFirstLetter('');
+    expect(string).toEqual('');
+  });
 });
