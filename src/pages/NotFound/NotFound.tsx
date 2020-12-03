@@ -12,7 +12,7 @@ interface EmptyPageProps {
   title?: string;
 }
 
-const EmptyPage: React.FC<EmptyPageProps> = ({ title }) => {
+const EmptyPage: React.FC<EmptyPageProps> = () => {
   return (
     <div className={s.root}>
       <h1 className={s.error}>404</h1>
