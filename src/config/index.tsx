@@ -28,6 +28,12 @@ export const config: configI = {
           pathname: '/api/v1/pokemons',
         },
       },
+      getPokemonsTypes: {
+        method: 'GET',
+        uri: {
+          pathname: `/api/v1/types`,
+        },
+      },
       getPokemon: {
         method: 'GET',
         uri: {

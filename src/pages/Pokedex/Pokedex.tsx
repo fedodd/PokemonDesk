@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
 import Heading from '../../components/Heading/Heading';
 import PokemonCard from '../../components/PokemonCard/PokemonCard';
 import useData from '../../hook/getData';
@@ -9,12 +10,18 @@ import style from './Pokedex.module.scss';
 import { IPokemons, PokemonRequest } from '../../interface/pokemons';
 import useDebounce from '../../hook/useDebounce';
 import { IQuery } from '../../utils/getUrlWithParamsConfig';
+import { getPokemonsTypes, getPokemonsTypesLoading, getTypesAction } from '../../store/pokemons';
 
 // interface IQuery {
 //   name?: string;
 // }
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const types = useSelector(getPokemonsTypes);
+  const isTypesLoading = useSelector(getPokemonsTypesLoading);
+  console.log('@@@', types, isTypesLoading);
+
   const [searchValue, setSearchValue] = useState('');
   const [query, setQuery] = useState<IQuery>({});
   // const query = useMemo(
@@ -23,6 +30,10 @@ const Home = () => {
   //   }),
   //   [searchValue],
   // );
+
+  useEffect(() => {
+    dispatch(getTypesAction());
+  }, []);
 
   const debouncedValue = useDebounce(searchValue, 500);
 
@@ -59,6 +70,8 @@ const Home = () => {
             onChange={handleSearchChange}
           />
         </div>
+
+        <div>{isTypesLoading ? <p>Loading...</p> : types?.map((type) => <span>{type}, </span>)}</div>
 
         <div className={style.pokemons}>
           {!isLoading &&

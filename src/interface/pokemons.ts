@@ -42,3 +42,5 @@ interface iPokemon {
   // order: number;
   // weight: number;
 }
+
+export type ITypesRequest = string[];
